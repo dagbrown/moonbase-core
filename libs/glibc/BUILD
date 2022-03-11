@@ -2,7 +2,7 @@
 CFLAGS+=" -O2" &&
 
 # The fortify compiler option cause the build to fail
-bad_flags -D_FORTIFY_SOURCE=2 &&
+bad_flags "-Wp,-D_FORTIFY_SOURCE=2" "-fno-plt" &&
 
 # 32bit build fails with -Os due to a ebp inline assembly problem
 # (note: This problem might be obsolete)
@@ -64,8 +64,7 @@ make &&
 
 # Re-enable hardening
 sedit '/build-programs=/s;no;yes;' configparms &&
-echo "CC += -D_FORTIFY_SOURCE=2" >> configparms &&
-echo "CXX += -D_FORTIFY_SOURCE=2" >> configparms &&
+echo "CFLAGS += -Wp,-D_FORTIFY_SOURCE=2" >> configparms &&
 make &&
 
 # Preserve the old glibc temporarily
