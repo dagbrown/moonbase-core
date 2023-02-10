@@ -4,6 +4,18 @@ depends util-linux
 depends json-c
 depends %OSSL
 
+optional_depends libssh \
+        "--enable-ssh-token" \
+        "--disable-ssh-token" \
+        "For ssh token support" \
+        n
+
+optional_depends asciidoctor \
+        "--enable-asciidoc" \
+        "--disable-asciidoc" \
+        "For man page generation" \
+        n
+
 optional_depends argon2 \
                  "--enable-libargon2" \
                  "--disable-libargon2" \
