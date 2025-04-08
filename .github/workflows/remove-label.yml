@@ -1,0 +1,24 @@
+name: Remove Label on New Commit
+
+on:
+  pull_request:
+    types: [synchronize]
+
+jobs:
+  remove-label:
+    if: contains(github.event.pull_request.labels.*.name, 'iso_ok')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Remove iso_broken label from PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labelToRemove = 'iso_broken'
+
+            await github.rest.issues.removeLabel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              name: [labelToRemove],
+            })
