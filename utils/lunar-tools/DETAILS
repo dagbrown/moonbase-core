@@ -1,22 +1,23 @@
           MODULE=lunar-tools
-         VERSION=2025.1
-          SOURCE=$MODULE-$VERSION.tar.bz2
-      SOURCE_URL=http://lunar-linux.org/lunar/lunar-tools
-      SOURCE_VFY=sha256:399dda47a5b79e348dac05d8057906a004afb32883f567ec866bd2e194b5327b 
+         VERSION=2026.2
+          SOURCE=$MODULE-$VERSION-i686.tar.xz
+      SOURCE_URL=https://github.com/lunar-linux/lunar-tools/releases/download/$VERSION
+      SOURCE_VFY=sha256:387070199aa4f065300d21124638df72e5f3702fe4340bcf57fb3159a456d291
         WEB_SITE=http://lunar-linux.org/
          ENTERED=20041029
-         UPDATED=20250413
+         UPDATED=20260308
            SHORT="A collection of lunar tools"
 cat << EOF
 Lunar-tools is a package with non-vital tools that help you perform
 certain system tasks. Currently it lists the following tools:
 
-lnet       network administration tool
-lservices  start/stop and add/remove startup services
-luser      user and group administration tool
-lids       file integrity and permission monitoring tool
-lmodules   handle your kernel modules
-clad       cluster administration tool
-ltime      set your timezone
+lnet           network administration tool
+lservices      start/stop and add/remove startup services
+luser          user and group administration tool
+lids           file integrity and permission monitoring tool
+lmodules       handle your kernel modules
+clad           cluster administration tool
+ltime          set your timezone
 installkernel  installs kernels using the kernel 'make install'
+llint          module linting tool
 EOF
