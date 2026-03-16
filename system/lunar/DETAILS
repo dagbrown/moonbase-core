@@ -1,12 +1,12 @@
           MODULE=lunar
-         VERSION=53
+         VERSION=48
           SOURCE=$MODULE-$VERSION.tar.gz
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
- SOURCE_URL_FULL=https://github.com/lunar-linux/lunar/archive/refs/tags/v$VERSION.tar.gz
-      SOURCE_VFY=sha256:d1f6181dd35ae1e4f129383454cd9ab0746deca74e0cc3e315b3456e8d4fb2cd
+ SOURCE_URL_FULL=https://lunar.lart.ca/dl/lunar/
+      SOURCE_VFY=sha256:4593f90f546cd593cc3b36580debd1d3d0a1f57618d1140c02847f8422f9952c
         WEB_SITE=http://lunar-linux.org/
          ENTERED=20020218
-         UPDATED=20260308
+         UPDATED=20260317
            SHORT="lunar contains the package management tools for Lunar-Linux."
 USE_WRAPPERS=off
 
@@ -14,17 +14,29 @@ cat << EOF
 lunar - Tools package management by source.
 
 lunar includes the following files:
-/etc/lunar/config /etc/lunar/dialogrc /etc/lunar/local /etc/lunar/mirrors configuration files.
-/usr/share/doc/lunar/COPYING-2.0 /usr/share/doc/lunar/CVS /usr/share/doc/lunar/ChangeLog /usr/share/doc/lunar/Changelog /usr/share/doc/lunar/README /usr/share/doc/lunar/contributions /usr/share/doc/lunar/gpl.html documentation, please read
-/usr/sbin/lunar menu driven interface
-/usr/sbin/lget downloads modules sources
-/usr/sbin/lin installs modules
-/usr/sbin/lrm removes modules
-/usr/sbin/lvu provides information about the box
-/var/lib/lunar/excluded list of files that are ignored
-/var/lib/lunar/protected list of files that will not be deleted
-/var/lib/lunar/subroutines common subroutines
+
+configuration files:
+    /etc/lunar/config      global Lunar config
+    /etc/lunar/dialogrc    dialog configuration
+    /etc/lunar/local       local lunar config
+    /etc/lunar/mirrors     list of mirrors for common software
+
+programs:
+    /usr/sbin/lunar    menu driven interface
+    /usr/sbin/lget     downloads modules sources
+    /usr/sbin/lin      installs modules
+    /usr/sbin/lrm      removes modules
+    /usr/sbin/lvu      provides information about the box
+
+other files:
+    /var/lib/lunar/excluded     list of files that are ignored
+    /var/lib/lunar/protected    list of files that will not be deleted
+    /var/lib/lunar/functions    common subroutines
 
 and man pages.
+
+For a full list of files in the `lunar` module, use
+    lvu installed lunar
+It can even inspect itself!
 
 EOF
