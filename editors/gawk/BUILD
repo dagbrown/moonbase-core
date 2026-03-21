@@ -31,5 +31,8 @@ make install &&
 ln -sf /usr/bin/{g,}awk &&
 rm -f /usr/bin/{,p}gawk-* &&
 
-mv /etc/profile.d/gawk.{sh,rc} &&
+if [ -f /etc/profile.d/gawk.sh ]
+then
+    mv /etc/profile.d/gawk.sh /etc/profile.d/gawk.rc
+fi &&
 rm -f /etc/profile.d/gawk.csh
