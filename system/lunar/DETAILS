@@ -1,9 +1,9 @@
           MODULE=lunar
-         VERSION=48.3.3
+         VERSION=48.3.4
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=https://lunar.lart.ca/dl/lunar/
-      SOURCE_VFY=sha256:5d700225a3f35e409f216b5bd975a7d80514866ffc1618dec41dee7547556caa
+      SOURCE_VFY=sha256:ab2d92199523c768bb6470b0a4bfa73d077d1fe760b028294ef5f98b8f6528e2
         WEB_SITE=http://lunar-linux.org/
    DESTDIR_BUILD=on
          ENTERED=20020218
