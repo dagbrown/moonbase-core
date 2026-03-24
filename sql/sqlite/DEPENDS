@@ -1,0 +1,4 @@
+depends zlib
+depends readline
+
+optional_depends tcl "" "" "for Tcl support" n

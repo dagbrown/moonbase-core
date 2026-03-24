@@ -1,0 +1,22 @@
+          MODULE=sqlite
+         VERSION=3520000
+          SOURCE=$MODULE-src-$VERSION.zip
+      SOURCE_URL=https://sqlite.org/2026
+      SOURCE_VFY=sha256:652a98ca833ed638809a52bec225a7f37799f71a995778f9ccb68ad03bd1fc11
+SOURCE_DIRECTORY=$BUILD_DIRECTORY/sqlite-src-$VERSION/
+        WEB_SITE=https://sqlite.org
+         ENTERED=20011016
+         UPDATED=20260308
+           SHORT="A SQL engine in a C library"
+
+cat << EOF
+SQLite is a C library that implements an SQL database engine. A large subset
+of SQL92 is supported. A complete database is stored in a single disk file.
+The API is designed for convenience and ease of use. Applications that link
+against SQLite can enjoy the power and flexiblity of an SQL database without
+the administrative hassles of supporting a separate database server. Because
+it omits the client-server interaction overhead and writes directly to disk,
+SQLite is also faster than the big database servers for most operations. In
+addition to the C library, the SQLite distribution includes a command-line
+tool for interacting with SQLite databases and SQLite bindings for Tcl/Tk.
+EOF
