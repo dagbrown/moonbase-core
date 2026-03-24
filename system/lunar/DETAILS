@@ -1,13 +1,12 @@
           MODULE=lunar
-         VERSION=48.3.6
+         VERSION=48.4
           SOURCE=$MODULE-$VERSION.tar.bz2
 SOURCE_DIRECTORY=$BUILD_DIRECTORY/$MODULE-$VERSION
       SOURCE_URL=https://lunar.lart.ca/dl/lunar/
-      SOURCE_VFY=sha256:9b06339b025cb250e6e9243ae99910a40ee27b352f6e9be9d3e995325fb5e704
+      SOURCE_VFY=sha256:478dc9541a3bcdfafc318d1dfa69a63b06fa3233987db3052630369818258259
         WEB_SITE=http://lunar-linux.org/
-   DESTDIR_BUILD=on
          ENTERED=20020218
-         UPDATED=20260322
+         UPDATED=20260324
            SHORT="lunar contains the package management tools for Lunar-Linux."
 USE_WRAPPERS=off
 
