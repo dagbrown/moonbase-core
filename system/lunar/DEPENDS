@@ -22,6 +22,7 @@ depends patch
 depends diffstat
 depends xz
 depends sed
+depends sqlite
 
 optional_depends "nano"          "" "" "for a ultra-small editor"
 optional_depends "lunaric-sound" "" "" "to have lunar signal events with sound"
