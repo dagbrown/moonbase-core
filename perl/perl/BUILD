@@ -24,4 +24,4 @@ ldconfig &&
 prepare_install &&
 make install &&
 
-strip --strip-unneeded $(which perl)
+strip --strip-unneeded $(type -p perl)
