@@ -7,12 +7,7 @@ OPTS+=" --bindir=/usr/bin \
         --enable-static-link \
         --without-bash-mallocx"
 
-GLIBC_MINOR_VERSION=$(lvu installed glibc | cut -f2 -d.)
-
-if (( GLIBC_MINOR_VERSION >= 41 ))
-then
-	sedit '/CAN_REDEFINE_GETENV/s,^,// ,' config.h.in
-fi
+sedit '/CAN_REDEFINE_GETENV/s,^,// ,' config.h.in &&
 
 default_config &&
 make version.h &&
