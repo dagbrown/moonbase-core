@@ -1,4 +1,5 @@
 depends zlib
+depends unzip
 depends readline
 
 optional_depends tcl "" "" "for Tcl support" n
