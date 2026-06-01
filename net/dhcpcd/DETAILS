@@ -1,12 +1,12 @@
-          MODULE=dhcpcd
-         VERSION=10.3.0
-          SOURCE=$MODULE-$VERSION.tar.xz
-      SOURCE_URL=https://github.com/NetworkConfiguration/dhcpcd/releases/download/v$VERSION
-      SOURCE_VFY=sha256:06e4c1aaf958523f3fd1c57258c613c6c7ae56b8f1d678fa7943495d5ea6aeb5
-        WEB_SITE=http://roy.marples.name/projects/dhcpcd
-         ENTERED=20011126
-         UPDATED=20251116
-           SHORT="DHCP client/daemon that works with @home"
+    MODULE=dhcpcd
+   VERSION=10.3.2
+    SOURCE=$MODULE-$VERSION.tar.xz
+SOURCE_URL=https://github.com/NetworkConfiguration/dhcpcd/releases/download/v$VERSION
+SOURCE_VFY=sha256:b6aa46932074906a9badef1bfe142b8aff9d041c2689e1ef8b74c12e9fd942bd
+  WEB_SITE=http://roy.marples.name/projects/dhcpcd
+   ENTERED=20011126
+   UPDATED=20260509
+     SHORT="DHCP client/daemon that works with @home"
 
 cat << EOF
 dhcpcd is an RFC2131-, RFC2132-, and RFC1541-compliant DHCP client daemon. It
