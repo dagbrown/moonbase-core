@@ -1,1 +1,6 @@
 depmod -a $(lvu installed linux)
+if lvu installed grub2 >/dev/null
+then
+    lvu compile grub2 | grep 'checking for libzfs_init.*yes' > /dev/null ||
+    lin -c grub2
+fi
