@@ -1,6 +1,9 @@
 # using -pipe causes spurious test-suite failures
 bad_flags -pipe &&
 
+export DESTDIR=$(pwd)/INSTALL_$VERSION &&
+mkdir $DESTDIR &&
+
 mkdir BUILD &&
 cd BUILD &&
 
@@ -36,27 +39,41 @@ OPTS+=" --build=$BUILD                \
 ../configure $OPTS &&
 
 make CFLAGS='-O' LIBCFLAGS='-g -O2' LIBCXXFLAGS='-g -O2 -fno-implicit-templates' bootstrap-lean &&
-prepare_install &&
-make install &&
+make install DESTDIR=$DESTDIR &&
+if [ -d $DESTDIR/usr/lib64 ]
+then
+    mv $DESTDIR/usr/lib64/* $DESTDIR/usr/lib
+    rmdir $DESTDIR/usr/lib64
+fi &&
 
-( cd /usr/libexec/gcc/`arch`-pc-linux-gnu/$VERSION &&
-  strip cc1 cc1plus lto1 ) &&
+( 
 
-# Make the package archive a lot smaller
-#(
-#  cd /usr/lib/gcc/`arch`-pc-linux-gnu/$VERSION &&
-#  strip cc1 cc1plus lto1
-#) &&
+  cd $DESTDIR/usr/libexec/gcc/`arch`-pc-linux-gnu/$VERSION &&
 
-install -d /usr/share/gdb/auto-load &&
-mv /usr/lib/libstdc++.so.6.*-gdb.py /usr/share/gdb/auto-load/ &&
+  for file in *
+  do
+    if [ -f $file ]
+    then
+      strip $file || true
+    fi
+  done &&
 
-ln -sf /usr/bin/cpp /usr/lib/gcc/$BUILD/$VERSION/cpp &&
-ln -sf gcc /usr/bin/cc &&
+  cd $DESTDIR/usr/bin &&
+  strip * || true
+) &&
+
+install -d $DESTDIR/usr/share/gdb/auto-load &&
+mv $DESTDIR/usr/lib/libstdc++.so.6.*-gdb.py $DESTDIR/usr/share/gdb/auto-load/ &&
+
+ln -sf /usr/bin/cpp $DESTDIR/usr/lib/gcc/$BUILD/$VERSION/cpp &&
+ln -sf gcc $DESTDIR/usr/bin/cc &&
 
 # POSIX conformance launcher scripts for c89 and c99
-install -m0755 {${SCRIPT_DIRECTORY},/usr/bin}/c89 &&
-install -m0755 {${SCRIPT_DIRECTORY},/usr/bin}/c99 &&
+install -m0755 {${SCRIPT_DIRECTORY},$DESTDIR/usr/bin}/c89 &&
+install -m0755 {${SCRIPT_DIRECTORY},$DESTDIR/usr/bin}/c99 &&
 
 # remove the offending broken freetype link
-rm -f /usr/lib/gcc/$BUILD/$VERSION/include-fixed/freetype
+rm -f $DESTDIR/usr/lib/gcc/$BUILD/$VERSION/include-fixed/freetype
+
+prepare_install &&
+cp -rfv --remove-destination $DESTDIR/* /
