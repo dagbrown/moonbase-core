@@ -8,13 +8,14 @@ else
   _EFI_EMU="--disable-efiemu"
 fi
 
-OPTS+=" --prefix=/opt/lunar \
-        --bindir=/opt/lunar/bin \
-        --sbindir=/opt/lunar/bin \
-        --mandir=/opt/lunar/share/man \
-        --infodir=/opt/lunar/share/info \
-        --datarootdir=/opt/lunar/share \
+OPTS+=" --prefix=/usr \
+        --bindir=/usr/bin \
+        --sbindir=/usr/bin \
+        --mandir=/usr/share/man \
+        --infodir=/usr/share/info \
+        --datarootdir=/usr/share \
         --sysconfdir=/etc \
+        --program-suffix=-zfs \
         --enable-nls \
         --enable-mm-debug \
         --enable-boot-time \
@@ -47,9 +48,9 @@ make &&
 
 prepare_install &&
 cd $GRUB_BIOS &&
-make bashcompletiondir=/opt/lunar/share/bash-completion/completions install &&
+make install-binPROGRAMS install-platformPROGRAMS install-sbinPROGRAMS &&
 cd $GRUB_EFI &&
-make bashcompletiondir=/opt/lunar/share/bash-completion/completions install &&
+make install-binPROGRAMS install-platformPROGRAMS install-sbinPROGRAMS &&
 
 # Clean up some debug files etc
 (rm -f /opt/lunar/lib/grub/{i386-pc,${_EFI_ARCH}-efi}/{*.module,*.image,kernel.exec,gdb_grub,gmodule.pl} || true)
