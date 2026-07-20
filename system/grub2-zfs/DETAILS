@@ -1,4 +1,4 @@
-          MODULE=grub2
+          MODULE=grub2-zfs
          VERSION=2.12
           SOURCE=grub-$VERSION.tar.gz
    SOURCE_URL[0]=https://ftp.gnu.org/gnu/grub
