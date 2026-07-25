@@ -1,11 +1,11 @@
     MODULE=lunar-tools
-   VERSION=2026.7
-    SOURCE=$MODULE-$VERSION-i686.tar.xz
-SOURCE_URL=https://github.com/lunar-linux/lunar-tools/releases/download/$VERSION
-SOURCE_VFY=sha256:100fd6030dab2a3dcd45fc741ddf7304bfc2621d85c5c0693dc53af38dff3b41
+   VERSION=2026.3.1
+    SOURCE=$MODULE-$VERSION.tar.bz2
+SOURCE_URL=https://gitlab.lart.ca/lunar-linux/$MODULE/-/archive/$MODULE-$VERSION/
+SOURCE_VFY=sha256:c9d27420b4723f7b6e20602b5355e8bd6a1433422f783c64a99a70fe2f5979d5
   WEB_SITE=http://lunar-linux.org/
    ENTERED=20041029
-   UPDATED=20260319
+   UPDATED=20260725
      SHORT="A collection of lunar tools"
 
 cat << EOF
