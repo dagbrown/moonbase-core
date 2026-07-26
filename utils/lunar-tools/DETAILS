@@ -1,8 +1,8 @@
     MODULE=lunar-tools
    VERSION=2026.3.2
-    SOURCE=$MODULE-$VERSION.tar.bz2
-SOURCE_URL=https://gitlab.lart.ca/lunar-linux/$MODULE/-/archive/$MODULE-$VERSION/
-SOURCE_VFY=sha256:64aecf6f555f766c59ee8f4a240ebeb1eb05f6a6fcb6b47eab6ca5891c99db74
+    SOURCE=$MODULE-$VERSION.tar.xz
+SOURCE_URL=https://lunar.lart.ca/dl/lunar-tools
+SOURCE_VFY=sha256:4618861ca29bcd0fe76198e963b6a7aa804737724ee23c3e9789d910acff9016
   WEB_SITE=http://lunar-linux.org/
    ENTERED=20041029
    UPDATED=20260726
