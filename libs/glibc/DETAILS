@@ -10,8 +10,6 @@
          UPDATED=20260820
            SHORT="C library for use with GNU/Hurd and GNU/Linux"
 
-DESTDIR_BUILD=on
-
 cat << EOF
 glibc - Library for use with GNU/Hurd and GNU/Linux.
 GNU C Library is one of the most important components of the GNU Hurd and most
