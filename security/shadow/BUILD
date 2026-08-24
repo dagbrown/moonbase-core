@@ -14,6 +14,14 @@ set_login_opts() {
 # Keep shadow from installing it's own pam.d files
 sedit '/^SUBDIRS/ n; s/etc//' Makefile.in Makefile.am &&
 
+# work around a chicken-and-egg problem which should only
+# happen when building an iso
+
+if ! lvu installed systemd > /dev/null
+then
+  OPTS+=' --disable-logind '
+fi &&
+
 ./configure --prefix=/usr \
             --bindir=/usr/bin \
             --sbindir=/usr/bin \
