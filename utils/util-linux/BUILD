@@ -27,6 +27,11 @@ mv _pkg/bin/lsblk _pkg/usr/bin &&
 cp -l _pkg/bin/mount _pkg/usr/bin &&
 cp -l _pkg/bin/mount _pkg/usr/sbin &&
 cp -l _pkg/bin/mount _pkg/sbin &&
+# One of those mounts is correct, I just don't know which one
+
+# ALSO:
+cp -l _pkg/sbin/agetty _pkg/usr/sbin &&
+
 chmod 700 _pkg/usr/bin/wall &&
 chmod 4711 _pkg/usr/bin/{newgrp,ch{sh,fn}} &&
 if module_installed systemd; then
