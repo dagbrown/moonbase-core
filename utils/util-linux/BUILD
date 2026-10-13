@@ -25,6 +25,8 @@ mv _pkg/sbin/sulogin _pkg/usr/sbin &&
 mv _pkg/bin/lsblk _pkg/usr/bin &&
 # temp hack to get latest systemd working -- 20261012
 cp -l _pkg/bin/mount _pkg/usr/bin &&
+cp -l _pkg/bin/mount _pkg/usr/sbin &&
+cp -l _pkg/bin/mount _pkg/sbin &&
 chmod 700 _pkg/usr/bin/wall &&
 chmod 4711 _pkg/usr/bin/{newgrp,ch{sh,fn}} &&
 if module_installed systemd; then
