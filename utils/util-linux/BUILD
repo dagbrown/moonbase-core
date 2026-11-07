@@ -25,8 +25,10 @@ mv _pkg/sbin/sulogin _pkg/usr/sbin &&
 mv _pkg/bin/lsblk _pkg/usr/bin &&
 # temporary hack for transition between systemd 258 and >=260
 cp -l _pkg/bin/mount _pkg/usr/bin &&
+cp -l _pkg/bin/umount _pkg/usr/bin &&
 cp -l _pkg/sbin/agetty _pkg/usr/sbin &&
 cp -l _pkg/sbin/swapon _pkg/usr/sbin &&
+cp -l _pkg/sbin/swapoff _pkg/usr/sbin &&
 # end temporary hack
 # TODO: implement full /bin -> /usr/bin and /sbin -> /usr/sbin merge
 # TODO: then also implement /usr/sbin -> /usr/bin merge
