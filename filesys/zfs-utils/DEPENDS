@@ -1,1 +1,2 @@
 depends libtirpc
+depends dracut # to ensure zfs dracut modules are installed
